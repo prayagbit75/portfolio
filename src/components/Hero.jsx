@@ -59,8 +59,6 @@ export default function Hero() {
                   2000,
                   "Problem Solver",
                   2000,
-                  "Open Source Learner",
-                  2000,
                 ]}
                 wrapper="span"
                 speed={50}
