@@ -3,6 +3,7 @@ import {
   FaExternalLinkAlt,
 } from "react-icons/fa";
 import TaskFlow from '../assets/image/TaskFlow.png'
+import portfolio from '../assets/image/portfolio.png'
 
 export default function Projects() {
   const projects = [
@@ -34,11 +35,11 @@ export default function Projects() {
         "JWT",
       ],
       github: "https://github.com/Som949/Upi-Banking-System.git",
-      live: "#",
+      live: "",
     },
 
     {
-      imageurl:"",
+      imageurl:portfolio,
       title: "Portfolio website",
       description:
         "Modern responsive portfolio built using React and Tailwind CSS featuring smooth navigation, animations, and clean UI.",
@@ -46,8 +47,8 @@ export default function Projects() {
         "React",
         "Tailwind",
       ],
-      github: "#",
-      live: "#",
+      github: "https://github.com/prayagbit75/portfolio.git",
+      live: "",
     },
   ];
 
@@ -87,16 +88,18 @@ export default function Projects() {
 
               {/* Image */}
 
-              <div className="h-52 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
-
-               { console.log( project.imageurl)} 
-                {
-                  project.imageurl==="" ? <span className="text-zinc-500 text-lg">
-                  Project Screenshot
-                </span> : <img src={`${project.imageurl}`} alt="project screenshort" />
-                }
-
-
+              <div className="h-52 w-full overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
+                {project.imageurl === "" ? (
+                  <span className="text-zinc-500 text-lg">
+                    Project Screenshot
+                  </span>
+                ) : (
+                  <img
+                    src={project.imageurl}
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
 
               {/* Content */}
@@ -135,34 +138,30 @@ export default function Projects() {
                 {/* Buttons */}
 
                 <div className="flex gap-4 mt-8">
+                    {project.github !== "" && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#0F0F0F] border border-zinc-700 hover:border-amber-400 transition"
+                      >
+                        <FaGithub />
+                        GitHub
+                      </a>
+                    )}
 
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#0F0F0F] border border-zinc-700 hover:border-amber-400 transition"
-                  >
-
-                    <FaGithub />
-
-                    GitHub
-
-                  </a>
-
-                  <a   
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`flex-1   flex items-center justify-center gap-2 py-3 rounded-xl bg-amber-500 text-black font-semibold hover:bg-amber-400 transition`}
-                  >
-
-                    <FaExternalLinkAlt />
-
-                    Live
-
-                  </a>
-
-                </div>
+                    {project.live !== "" && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-amber-500 text-black font-semibold hover:bg-amber-400 transition"
+                      >
+                        <FaExternalLinkAlt />
+                        Live
+                      </a>
+                    )}
+                  </div>
 
               </div>
 
